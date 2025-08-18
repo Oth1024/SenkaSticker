@@ -60,8 +60,4 @@
     <PackageReference Include="SkiaSharp" Version="2.88.7" />
 </ItemGroup>
 
-<ItemGroup>
-  <Folder Include="Components\TypeDef\" />
-</ItemGroup>
-
 </Project>

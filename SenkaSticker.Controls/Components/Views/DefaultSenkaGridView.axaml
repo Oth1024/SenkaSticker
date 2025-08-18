@@ -10,23 +10,26 @@
     <Border BorderBrush="#ea5e27" BorderThickness="5" Background="#1f1f1f">
         <Border BorderBrush="#ea5e27" BorderThickness="1"
                 Margin="10">
-            <ItemsControl>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="1"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border
-                            BorderBrush="DarkGray" BorderThickness="1,1,0,0" Background="WhiteSmoke">
-                            <TextBlock Text="{Binding}" VerticalAlignment="Center"
-                                        HorizontalAlignment="Center" TextAlignment="Center"
-                                        FontWeight="Bold" FontSize="{DynamicResource BenchGui_FontSize1}"/>
-                        </Border>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <Grid RowDefinitions="Auto *">
+                <TextBlock Text=""/>
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                BorderBrush="DarkGray" BorderThickness="1,1,0,0" Background="WhiteSmoke">
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center"
+                                            HorizontalAlignment="Center" TextAlignment="Center"
+                                            FontWeight="Bold" FontSize="{DynamicResource BenchGui_FontSize1}"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
         </Border>
     </Border>
 </UserControl>
