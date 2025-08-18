@@ -1,4 +1,6 @@
-﻿namespace SenkaSticker.Application.ViewModels;
+﻿using SenkaSticker.Controls.Components.ViewModels;
+
+namespace SenkaSticker.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {

@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace SenkaSticker.Application.Views;
+namespace SenkaSticker.Views;
 
 public partial class MainWindow : Window
 {
