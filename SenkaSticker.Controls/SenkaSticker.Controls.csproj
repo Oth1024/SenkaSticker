@@ -6,10 +6,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Views\" />
-  </ItemGroup>
-
 <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Angle.Windows.Natives" Version="2.1.0.2023020321" />
@@ -62,6 +58,10 @@
     <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.0.1" />
     <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.0.1.1" />
     <PackageReference Include="SkiaSharp" Version="2.88.7" />
+</ItemGroup>
+
+<ItemGroup>
+  <Folder Include="Components\TypeDef\" />
 </ItemGroup>
 
 </Project>
