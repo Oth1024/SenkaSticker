@@ -7,57 +7,57 @@
   </PropertyGroup>
 
 <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Angle.Windows.Natives" Version="2.1.0.2023020321" />
-    <PackageReference Include="Avalonia.BuildServices" Version="0.0.29" />
-    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.FreeDesktop" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Native" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Remote.Protocol" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Skia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Win32" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.X11" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.DragAndDrop" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Draggable" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Events" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Reactive" Version="11.0.5" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Responsive" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Caliburn.Micro.Avalonia" Version="5.0.0-beta.g" />
-    <PackageReference Include="Caliburn.Micro.Core" Version="5.0.0-beta.g" />
-    <PackageReference Include="Caliburn.Micro.Platform.Core" Version="5.0.0-beta.g" />
-    <PackageReference Include="ColorTextBlock.Avalonia" Version="11.0.2" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-    <PackageReference Include="CsvHelper" Version="31.0.0" />
-    <PackageReference Include="DialogHost.Avalonia" Version="0.7.7" />
-    <PackageReference Include="log4net" Version="2.0.15" />
-    <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.2" />
-    <PackageReference Include="MessageBox.Avalonia" Version="3.1.6" />
-    <PackageReference Include="MicroCom.Runtime" Version="0.11.0" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Angle.Windows.Natives" Version="2.1.0.2023020321"/>
+    <PackageReference Include="Avalonia.BuildServices" Version="0.0.29"/>
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.FreeDesktop" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Native" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Remote.Protocol" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Skia" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Themes.Simple" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Win32" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.X11" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.DragAndDrop" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.Draggable" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.Events" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.Reactive" Version="11.0.5"/>
+    <PackageReference Include="Avalonia.Xaml.Interactions.Responsive" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Caliburn.Micro.Avalonia" Version="5.0.0-beta.g"/>
+    <PackageReference Include="Caliburn.Micro.Core" Version="5.0.0-beta.g"/>
+    <PackageReference Include="Caliburn.Micro.Platform.Core" Version="5.0.0-beta.g"/>
+    <PackageReference Include="ColorTextBlock.Avalonia" Version="11.0.2"/>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0"/>
+    <PackageReference Include="CsvHelper" Version="31.0.0"/>
+    <PackageReference Include="DialogHost.Avalonia" Version="0.7.7"/>
+    <PackageReference Include="log4net" Version="2.0.15"/>
+    <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.2"/>
+    <PackageReference Include="MessageBox.Avalonia" Version="3.1.6"/>
+    <PackageReference Include="MicroCom.Runtime" Version="0.11.0"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.8.0"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.8.0"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.Scripting.Common" Version="3.8.0"/>
+    <PackageReference Include="Microsoft.CSharp" Version="4.3.0"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0"/>
+    <PackageReference Include="Semi.Avalonia" Version="11.0.1"/>
+    <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.0.1"/>
+    <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.0.1.1"/>
+    <PackageReference Include="SkiaSharp" Version="2.88.7"/>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Scripting.Common" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
-    <PackageReference Include="Semi.Avalonia" Version="11.0.1" />
-    <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.0.1" />
-    <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.0.1.1" />
-    <PackageReference Include="SkiaSharp" Version="2.88.7" />
 </ItemGroup>
 
 </Project>

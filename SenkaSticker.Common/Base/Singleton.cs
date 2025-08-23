@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace SenkaSticker.Common
+namespace SenkaSticker.Common.Base
 {
     public abstract class Singleton<T>
     {
@@ -15,7 +15,7 @@ namespace SenkaSticker.Common
         {
             get
             {
-                lock(_instanceLock)
+                lock (_instanceLock)
                 {
                     var type = typeof(T);
                     var constructor = type.GetConstructor(
@@ -23,7 +23,7 @@ namespace SenkaSticker.Common
                         null,
                         Type.EmptyTypes,
                         null);
-                    if (constructor == null) 
+                    if (constructor == null)
                     {
                         throw new Exception($"Can not find private constructor for type[{type}]");
                     }

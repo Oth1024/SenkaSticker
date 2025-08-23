@@ -2,7 +2,7 @@
 
 namespace SenkaSticker.Controls.Components.ViewModels
 {
-    public class ViewModelBase : Screen
+    public class ViewModelBase : PropertyChangedBase
     {
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SenkaSticker.Common.LanguageManager
+﻿namespace SenkaSticker.Common.Language
 {
     public enum Languages
     {
