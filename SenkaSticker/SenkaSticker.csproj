@@ -8,12 +8,12 @@
     <ApplicationIcon>./Assets/logo.ico</ApplicationIcon>
     <AssemblyName>Senka Sticker</AssemblyName>
   </PropertyGroup>
-    
   <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Include="Assets\logo.ico" />
   </ItemGroup>
     
   <ItemGroup>
+    <ProjectReference Include="..\SenkaSticker.Common\SenkaSticker.Common.csproj" />
     <ProjectReference Include="..\SenkaSticker.Controls\SenkaSticker.Controls.csproj" />
   </ItemGroup>
 </Project>

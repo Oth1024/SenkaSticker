@@ -1,21 +1,23 @@
 ﻿using System.Reflection;
 
-namespace SenkaSticker.Common.Base
+namespace SenkaSticker.Common.Base;
+
+public abstract class Singleton<T>
 {
-    public abstract class Singleton<T>
+    #region Fields
+    private static readonly object _instanceLock = new object();
+
+    private static T _instance;
+    #endregion
+
+    #region Properties
+    public static T Instance
     {
-        #region Fields
-        private static readonly object _instanceLock = new object();
-
-        private static T _instance;
-        #endregion
-
-        #region Properties
-        public static T Instance
+        get
         {
-            get
+            lock (_instanceLock)
             {
-                lock (_instanceLock)
+                if (_instance == null)
                 {
                     var type = typeof(T);
                     var constructor = type.GetConstructor(
@@ -28,10 +30,10 @@ namespace SenkaSticker.Common.Base
                         throw new Exception($"Can not find private constructor for type[{type}]");
                     }
                     _instance = (T)constructor.Invoke(null);
-                    return _instance;
                 }
+                return _instance;
             }
         }
-        #endregion
     }
+    #endregion
 }

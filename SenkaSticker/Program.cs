@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 
-namespace SenkaSticker.Desktop;
+namespace SenkaSticker;
 
 class Program
 {
@@ -16,5 +16,6 @@ class Program
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
-            .LogToTrace();
+            .LogToTrace()
+            .UseSkia();
 }

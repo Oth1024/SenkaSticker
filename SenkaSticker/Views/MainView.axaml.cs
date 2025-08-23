@@ -1,8 +1,9 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Diagnostics;
 
 namespace SenkaSticker.Views;
 
-public partial class MainView : UserControl
+public partial class MainView : Window
 {
     public MainView()
     {

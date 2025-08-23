@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker", "SenkaSticke
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Controls", "SenkaSticker.Controls\SenkaSticker.Controls.csproj", "{BB1BBD5C-36CE-4994-8D4C-89FC78103DDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenkaSticker.Common", "SenkaSticker.Common\SenkaSticker.Common.csproj", "{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Common", "SenkaSticker.Common\SenkaSticker.Common.csproj", "{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenkaSticker.Test", "SenkaSticker.Test\SenkaSticker.Test.csproj", "{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,14 @@ Global
 		{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}.Release|Any CPU.Build.0 = Release|x64
 		{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}.Release|x64.ActiveCfg = Release|x64
 		{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}.Release|x64.Build.0 = Release|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Debug|Any CPU.Build.0 = Debug|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Debug|x64.ActiveCfg = Debug|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Debug|x64.Build.0 = Debug|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|Any CPU.ActiveCfg = Release|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|Any CPU.Build.0 = Release|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|x64.ActiveCfg = Release|x64
+		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
