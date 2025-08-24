@@ -7,29 +7,14 @@
              x:DataType="viewModels:DefaultSenkaGridViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
              x:Class="SenkaSticker.Controls.Components.Views.DefaultSenkaGridView">
-    <Border BorderBrush="#ea5e27" BorderThickness="5" Background="#1f1f1f">
-        <Border BorderBrush="#ea5e27" BorderThickness="1"
-                Margin="10">
-            <Grid RowDefinitions="Auto *">
-                <TextBlock Text=""/>
-                <ItemsControl>
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Rows="1"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Border
-                                BorderBrush="DarkGray" BorderThickness="1,1,0,0" Background="WhiteSmoke">
-                                <TextBlock Text="{Binding}" VerticalAlignment="Center"
-                                            HorizontalAlignment="Center" TextAlignment="Center"
-                                            FontWeight="Bold" FontSize="{DynamicResource BenchGui_FontSize1}"/>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </Grid>
-        </Border>
+    <Border BorderBrush="#ea5e27" BorderThickness="1,5" Background="#1f1f1f">
+        <StackPanel>
+            <Border Background="#ea5e27" Height="32">
+                <DockPanel LastChildFill="False">
+                    
+                </DockPanel>
+            </Border>
+            
+        </StackPanel>
     </Border>
 </UserControl>

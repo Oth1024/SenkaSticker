@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             x:DataType="viewModels:CloseButtonViewModel"
+             mc:Ignorable="d" d:DesignWidth="32" d:DesignHeight="32"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.CloseButtonView">
+    <PathIcon Data=""
+              BorderBrush="#ea5e27" Background="#ea5e27">
+        
+    </PathIcon>
+</UserControl>
