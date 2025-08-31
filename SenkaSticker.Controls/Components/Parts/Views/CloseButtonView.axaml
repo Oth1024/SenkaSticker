@@ -7,8 +7,17 @@
              x:DataType="viewModels:CloseButtonViewModel"
              mc:Ignorable="d" d:DesignWidth="32" d:DesignHeight="32"
              x:Class="SenkaSticker.Controls.Components.Parts.Views.CloseButtonView">
-    <PathIcon Data=""
-              BorderBrush="#ea5e27" Background="#ea5e27">
-        
-    </PathIcon>
+    <Button>
+        <Button.Styles>
+            <StyleInclude Source="/Theme/Button.axaml"/>
+        </Button.Styles>
+        <Border Width="32" Height="32" Classes="ButtonBackground">
+            <PathIcon Classes="ButtonStroke" Width="32" Height="32"
+                      Data="M0,12 L0,20 L12,20 L12,32 L20,32 L20,20 L32,20 L32,12 L20,12 L20,0 L12,0 L12,12 L0,12">
+                <PathIcon.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </PathIcon.RenderTransform>
+            </PathIcon>
+        </Border>
+    </Button>
 </UserControl>

@@ -1,7 +1,8 @@
 ﻿using SenkaSticker.Common.CustomAssembly;
 using SenkaSticker.Controls;
+using SenkaSticker.Controls.Base;
+using SenkaSticker.Controls.Base.Custom;
 using SenkaSticker.Controls.Components.ViewModels;
-using SenkaSticker.Controls.Custom;
 using System;
 using System.Linq;
 using System.Reflection;

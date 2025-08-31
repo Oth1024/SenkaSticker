@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls.Templates;
 using Avalonia.Controls;
 using System;
-using SenkaSticker.Controls.Components.ViewModels;
+using SenkaSticker.Controls.Base;
 
 namespace SenkaSticker;
 

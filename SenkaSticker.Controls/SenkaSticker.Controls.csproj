@@ -43,9 +43,7 @@
     <PackageReference Include="Avalonia.Xaml.Interactions.Reactive" Version="11.0.5" />
     <PackageReference Include="Avalonia.Xaml.Interactions.Responsive" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Xaml.Interactivity" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Caliburn.Micro.Avalonia" Version="5.0.0-beta.g" />
-    <PackageReference Include="Caliburn.Micro.Core" Version="5.0.0-beta.g" />
-    <PackageReference Include="Caliburn.Micro.Platform.Core" Version="5.0.0-beta.g" />
+
     <PackageReference Include="ColorTextBlock.Avalonia" Version="11.0.2" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="CsvHelper" Version="31.0.0" />
@@ -67,6 +65,10 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+</ItemGroup>
+
+<ItemGroup>
+  <ProjectReference Include="..\SenkaSticker.Common\SenkaSticker.Common.csproj" />
 </ItemGroup>
 
 </Project>

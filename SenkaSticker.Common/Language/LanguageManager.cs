@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using Caliburn.Micro;
 using SenkaSticker.Common.Base;
 using SenkaSticker.Common.Config;
 using SenkaSticker.Common.Consts;
@@ -45,7 +46,7 @@ public class LanguageManager : PropertyChangedBase, ILanguageManager
     public void SetCurrentLanguage(Languages language)
     {
         CurrentLanguage = language;
-        NotifyPropertyChanged(nameof(LanguageResource));
+        NotifyOfPropertyChange(nameof(LanguageResource));
     }
 
     public Languages GetCurrentLanguage()

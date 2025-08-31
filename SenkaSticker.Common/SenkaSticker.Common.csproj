@@ -8,7 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    <PackageReference Include="Caliburn.Micro.Avalonia" Version="5.0.0-beta.g" />
+    <PackageReference Include="Caliburn.Micro.Core" Version="5.0.0-beta.g" />
+    <PackageReference Include="Caliburn.Micro.Platform.Core" Version="5.0.0-beta.g" />
   </ItemGroup>
 
 </Project>
