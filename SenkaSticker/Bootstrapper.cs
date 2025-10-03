@@ -1,13 +1,19 @@
-﻿using Avalonia.Controls.ApplicationLifetimes;
+﻿using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
+using Avalonia.Platform;
 using Caliburn.Micro;
-using SenkaSticker.ViewModels;
-using System.Collections.Generic;
-using System;
-using System.Reflection;
-using System.IO;
 using SenkaSticker.Common.Consts;
-using System.Linq;
 using SenkaSticker.Common.CustomAssembly;
+using SenkaSticker.Common.Logger;
+using SenkaSticker.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reactive.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace SenkaSticker;
 
@@ -22,6 +28,8 @@ public class Bootstrapper : BootstrapperBase
 
     #region Fields
     private SimpleContainer _container = new SimpleContainer();
+    private TrayIcon _trayIcon;
+    private Window _mainWindow;
     #endregion
 
     #region Methods
@@ -33,11 +41,19 @@ public class Bootstrapper : BootstrapperBase
             .Singleton<MainViewModel>();
 
         LoadAssembly();
+        LoggerFactory.Configure();
     }
 
     protected override async void OnStartup(object sender, ControlledApplicationLifetimeStartupEventArgs e)
     {
         await DisplayRootViewFor<MainViewModel>();
+        InitializeTrayIcon();
+    }
+
+    protected override void OnExit(object sender, ControlledApplicationLifetimeExitEventArgs e)
+    {
+        _trayIcon?.Dispose();
+        base.OnExit(sender, e);
     }
 
     protected override object GetInstance(Type service, string key)
@@ -102,6 +118,43 @@ public class Bootstrapper : BootstrapperBase
                     }
                 }
             }
+        }
+    }
+
+    private void InitializeTrayIcon()
+    {
+        _trayIcon = new TrayIcon()
+        {
+            Icon = new WindowIcon(AssetLoader.Open(new Uri("avares://SenkaSticker/Assets/logo.ico"))),
+            ToolTipText = "Display Senka Sticker"
+        };
+        if (Application.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop && desktop.MainWindow != null)
+        {
+            _mainWindow = desktop.MainWindow;
+            _mainWindow.PropertyChanged += OnMainWindowPropertyChanged;
+        }
+        _trayIcon.Clicked += OnTrayIconClicked;
+    }
+
+    private void OnMainWindowPropertyChanged(object? sender, Avalonia.AvaloniaPropertyChangedEventArgs arg)
+    {
+        if (arg.Property == Window.WindowStateProperty)
+        {
+            OnWindowStateChanged((WindowState)arg.NewValue);
+        }
+    }
+
+    private void OnTrayIconClicked(object? sender, EventArgs e)
+    {
+        _mainWindow.Show();
+        _mainWindow.SetValue<WindowState>(Window.WindowStateProperty, WindowState.Normal);
+    }
+
+    private void OnWindowStateChanged(WindowState newState)
+    {
+        if (newState == WindowState.Minimized)
+        {
+            _mainWindow.Hide();
         }
     }
     #endregion

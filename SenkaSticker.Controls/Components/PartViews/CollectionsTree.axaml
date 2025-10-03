@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="300"
+             x:Name="collectionsTree"
+             xmlns:converters="using:SenkaSticker.Controls.Converters"
+             x:Class="SenkaSticker.Controls.Components.PartViews.CollectionsTree">
+    <UserControl.Resources>
+        <converters:BoolToRotationConverter x:Key="boolToRotationConverter"/>
+    </UserControl.Resources>
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+
+            <Button Margin="5"
+                    Padding="0"
+                    CornerRadius="0"
+                    Click="OnButtonClicked">
+                <DockPanel Height="{Binding ElementName=collectionsTree, Path=HeaderHeight}">
+                    <PathIcon DockPanel.Dock="Left"
+                              Width="{Binding ElementName=collectionsTree, Path=IconSize}"
+                              Data="M0,0 L2,1 L0,2" Foreground="{Binding ElementName=collectionsTree, Path=HeaderForeground}">
+                        <PathIcon.RenderTransform>
+                            <RotateTransform Angle="{Binding ElementName=collectionsTree, Path=IsExpanded, Converter={StaticResource boolToRotationConverter}}"/>
+                        </PathIcon.RenderTransform>
+                    </PathIcon>
+                    <TextBlock Text="{Binding ElementName=collectionsTree, Path=Header}"
+                               FontSize="{Binding ElementName=collectionsTree, Path=HeaderFontSize}"
+                               Foreground="{Binding ElementName=collectionsTree, Path=HeaderForeground}"
+                               FontStyle="{Binding ElementName=collectionsTree, Path=HeaderFontStyle}"
+                               Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+        </Grid>
+        <DockPanel DockPanel.Dock="Top">
+            <Border BorderBrush="{Binding ElementName=collectionsTree, Path=HeaderForeground}"
+                    BorderThickness="0,1,0,0">
+                <ItemsControl ItemsSource="{Binding ElementName=collectionsTree, Path=ItemsSource}"
+                              IsVisible="{Binding ElementName=collectionsTree, Path=IsExpanded}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+        </DockPanel>
+    </DockPanel>
+</UserControl>

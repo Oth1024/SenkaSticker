@@ -1,4 +1,5 @@
-﻿using SenkaSticker.Common.CustomAssembly;
+﻿using SenkaSticker.Build.Attributes;
+using SenkaSticker.Common.CustomAssembly;
 using SenkaSticker.Controls;
 using SenkaSticker.Controls.Base;
 using SenkaSticker.Controls.Base.Custom;

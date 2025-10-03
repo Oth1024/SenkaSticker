@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             x:DataType="viewModels:MessagePopViewModel"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="900"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.MessagePopView">
+    <UserControl.Styles>
+        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+    </UserControl.Styles>
+    <Border BorderThickness="1"
+            Classes="LightGrayBorderLine">
+        <Grid RowDefinitions="Auto *">
+            <Border Grid.Row="0"
+                    BorderThickness="0,0,0,1"
+                    Classes="LightGrayBorderLine">
+                <DockPanel LastChildFill="False">
+                    <Button DockPanel.Dock="Right"
+                            Margin="5" Padding="0"
+                            Classes="DefaultDarkButton"
+                            Command="{Binding IgnoreAll}"
+                            ToolTip.Tip="Ignore All"
+                            Width="25" Height="25">
+                        <Image Source="avares://SenkaSticker.Controls/Assets/Message/Clear.png"
+                               Stretch="Uniform"/>
+                    </Button>
+                    <Button DockPanel.Dock="Right"
+                            Margin="5" Padding="0"
+                            Classes="DefaultDarkButton"
+                            Command="{Binding ConfirmAll}"
+                            ToolTip.Tip="Confirm All"
+                            Width="25" Height="25">
+                        <Image Source="avares://SenkaSticker.Controls/Assets/Message/Commit.png"
+                               Stretch="Uniform"/>
+                    </Button>
+                </DockPanel>
+            </Border>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding ToDisplayMessages}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Classes="LightGrayBorderLine"
+                                BorderThickness="0,0,0,1">
+                            <ContentControl cal:View.Model="{Binding}"
+                                            VerticalAlignment="Top"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Border>
+</UserControl>

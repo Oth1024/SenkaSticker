@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SenkaSticker.Common.Base;
+using SenkaSticker.Common.Utilities;
 using SenkaSticker.Common.Consts;
 using System.Collections.Concurrent;
 using System.Reflection;

@@ -1,0 +1,96 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             xmlns:controls="using:SenkaSticker.Controls.Components.PartViews"
+             x:DataType="viewModels:IssuePopViewModel"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.IssuePopView">
+    <UserControl.Styles>
+        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/GlobalColor.axaml"/>
+    </UserControl.Styles>
+    <Grid RowDefinitions="Auto *">
+        <DockPanel Grid.Row="0"
+                   Margin="20">
+            <TextBlock Text="Search"
+                       Foreground="Gray"
+                       VerticalAlignment="Center"/>
+            <Button DockPanel.Dock="Right"
+                    Classes="LightDarkButton"
+                    Margin="10,0,0,0" Padding="2"
+                    Width="25" Height="25">
+                <Image Stretch="Fill"
+                       Source="avares://SenkaSticker.Controls/Assets/Common/Sort.png"/>
+                <Button.Styles>
+                    <Style Selector="MenuFlyoutPresenter">
+                        <Setter Property="CornerRadius" Value="0"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="Background" Value="#ea5e27"/>
+                        <Setter Property="Foreground" Value="#333333"/>
+                    </Style>
+                </Button.Styles>
+                <Button.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MenuItem Header="Default" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByDefault}"
+                                  Classes="LightDarkMenuItem"/>
+                        <MenuItem Header="↓ By Name" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByName}"
+                                  Classes="LightDarkMenuItem"/>
+                        <MenuItem Header="↑ Planned Start Time" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByPlannedStartTimeAscending}"
+                                  Classes="LightDarkMenuItem"/>
+                        <MenuItem Header="↓ Planned Start Time" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByPlannedStartTimeDescending}"
+                                  Classes="LightDarkMenuItem"/>
+                        <MenuItem Header="↑ Planned Finish Time" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByPlannedFinishTimeAscending}"
+                                  Classes="LightDarkMenuItem"/>
+                        <MenuItem Header="↓ Planned Finish Time" FontSize="12"
+                                  Padding="5"
+                                  Command="{Binding OrderByPlannedFinishTimeDescending}"
+                                  Classes="LightDarkMenuItem"/>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+            <TextBox Margin="10,0,0,0" SelectionBrush="#ea5e27"
+                     Foreground="Gray"
+                     CaretBrush="Gray"
+                     Text="{Binding SearchedContent}"
+                     Classes="DefaultSenkaTextbox"/>
+        </DockPanel>
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto">
+            <DockPanel Grid.Row="1">
+                <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                    <ContentControl cal:View.Model="{Binding CreateIssue}" Margin="10,0,0,0"/>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Top"
+                           VerticalAlignment="Top"
+                           IsVisible="{Binding ShowSearchContent}"
+                           Margin="10">
+                    <controls:CollectionsTree
+                        HeaderForeground="Gray"
+                        Header="Searched"
+                        IsExpanded="True"
+                        ItemsSource="{Binding SearchedIssues}"/>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Top"
+                           IsVisible="{Binding !ShowSearchContent}"
+                           Margin="10">
+                    <controls:CollectionsTree
+                        HeaderForeground="Gray"
+                        Header="Issue"
+                        ItemsSource="{Binding DisplayIssues}"/>
+                </DockPanel>
+            </DockPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

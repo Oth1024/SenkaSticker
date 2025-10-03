@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <EnableAnalyzerReleaseTracking>true</EnableAnalyzerReleaseTracking>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
+        <PackageReference Include="System.Collections.Immutable" Version="9.0.9" />
+    </ItemGroup>
+
+</Project>

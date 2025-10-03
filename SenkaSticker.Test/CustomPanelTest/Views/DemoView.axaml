@@ -7,10 +7,5 @@
              x:DataType="viewModels:DemoViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
              x:Class="SenkaSticker.Test.CustomPanelTest.Views.DemoView">
-    <Border BorderBrush="#ea5e27" BorderThickness="5" Background="#1f1f1f">
-        <Border BorderBrush="#ea5e27" BorderThickness="1"
-                Margin="10">
-            <TextBlock Text="Test Demo" FontSize="28" Foreground="White"/>
-        </Border>
-    </Border>
+
 </UserControl>

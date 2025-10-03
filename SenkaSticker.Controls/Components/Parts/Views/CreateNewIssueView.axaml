@@ -1,0 +1,119 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             xmlns:controls="using:SenkaSticker.Controls.Components.PartViews"
+             x:DataType="viewModels:CreateNewIssueViewModel"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="900"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.CreateNewIssueView">
+    <UserControl.Styles>
+        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+        <Style Selector="Grid > TextBlock">
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+        <Style Selector="Grid > TextBox">
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+        <Style Selector="ComboBox /template/ PathIcon.DropDownGlyph /template/ Path">
+            <Setter Property="Fill" Value="Gray"/>
+        </Style>
+    </UserControl.Styles>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top"
+                   Margin="10">
+            <Button Classes="LightDarkButton"
+                    IsVisible="{Binding !IsCreating}"
+                    Command="{Binding Create}"
+                    Margin="10,0,0,0" Padding="2"
+                    ToolTip.Tip="Create New Issue"
+                    Width="25" Height="25">
+                <Image Source="avares://SenkaSticker.Controls/Assets/Common/New.png"/>
+            </Button>
+            <Button Classes="LightDarkButton"
+                    IsVisible="{Binding IsCreating}"
+                    Command="{Binding Save}"
+                    Margin="10,0,0,0" Padding="2"
+                    ToolTip.Tip="Accept"
+                    Width="25" Height="25">
+                <Image Source="avares://SenkaSticker.Controls/Assets/Common/Ok.png"/>
+            </Button>
+            <Button Classes="LightDarkButton"
+                    IsVisible="{Binding IsCreating}"
+                    Command="{Binding Cancel}"
+                    Margin="10,0,0,0" Padding="2"
+                    ToolTip.Tip="Cancel"
+                    Width="25" Height="25">
+                <Image Source="avares://SenkaSticker.Controls/Assets/Common/No.png"/>
+            </Button>
+            <TextBlock Foreground="#ea5e27"
+                       VerticalAlignment="Center"
+                       Margin="30,0"
+                       Text="{Binding ErrorMessage}"/>
+        </DockPanel>
+        <Grid RowDefinitions="Auto Auto Auto Auto Auto Auto" ColumnDefinitions="Auto *"
+              IsVisible="{Binding IsCreating}">
+            <!--Name-->
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Text="Issue Name"/>
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     CaretBrush="Gray"
+                     CornerRadius="0"
+                     Classes="DefaultSenkaTextbox"
+                     Text="{Binding IssueName}"
+                     Margin="10"/>
+
+            <!--Type-->
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Text="Issue Type"/>
+            <ComboBox Grid.Row="1" Grid.Column="1"
+                      Width="160"
+                      Margin="10"
+                      ItemsSource="{Binding IssueTypes}"
+                      SelectedItem="{Binding IssueType}"
+                      Classes="DefaultSenkaComboBox"/>
+
+            <!--Planned Start Time-->
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Text="Planned Start Time"/>
+            <controls:SeperateTimePicker Grid.Row="2" Grid.Column="1"
+                                         Foreground="Gray"
+                                         HorizontalAlignment="Left"
+                                         Width="160"
+                                         YearWidth="40" MonthWidth="40" DayWidth="40"
+                                         Height="25" Margin="10"
+                                         DateTime="{Binding PlannedStartTime}"/>
+            
+            <!--Planned Finish Time-->
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       Text="Planned Finish Time"/>
+            <controls:SeperateTimePicker Grid.Row="3" Grid.Column="1"
+                                         Foreground="Gray"
+                                         HorizontalAlignment="Left"
+                                         Width="160"
+                                         YearWidth="40" MonthWidth="40" DayWidth="40"
+                                         Height="25" Margin="10"
+                                         DateTime="{Binding PlannedFinishTime}"/>
+
+            <!--Description-->
+            <TextBlock Grid.Row="4" Grid.Column="0"
+                       Margin="0,10"
+                       HorizontalAlignment="Right" VerticalAlignment="Top"
+                       Text="Description"/>
+            <TextBox Grid.Row="4" Grid.Column="1"
+                     CaretBrush="Gray"
+                     Text="{Binding Description}"
+                     CornerRadius="0"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Height="80"
+                     Margin="10"
+                     Classes="DefaultSenkaTextbox LongTextbox"/>
+        </Grid>
+    </DockPanel>
+</UserControl>

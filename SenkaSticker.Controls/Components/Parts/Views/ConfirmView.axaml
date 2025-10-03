@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             x:DataType="viewModels:ConfirmViewModel"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="200"
+             xmlns:converters="using:SenkaSticker.Controls.Converters"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.ConfirmView">
+    <UserControl.Styles>
+        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+    </UserControl.Styles>
+    <UserControl.Resources>
+        <converters:LimitedStringConverter x:Key="limitedStringConverter"/>
+    </UserControl.Resources>
+    <Border Classes="DarkBackground">
+        <Grid RowDefinitions="Auto * Auto Auto">
+            <TextBlock Grid.Row="0"
+                       FontSize="14"
+                       Text="{Binding MessageContent.Title, Converter={StaticResource limitedStringConverter}, ConverterParameter=20}"
+                       Margin="10,10,10,0"
+                       Foreground="LightGray" FontWeight="Bold"/>
+            <TextBlock Grid.Row="1"
+                       FontSize="14"
+                       Text="{Binding MessageContent.Description}"
+                       TextWrapping="Wrap"
+                       Margin="10"
+                       Foreground="Gray"/>
+            <TextBlock Grid.Row="2"
+                       FontSize="10"
+                       Text="{Binding CreateTime, StringFormat='YYYY-MM-dd HH:mm:ss'}"
+                       Margin="10,10,10,0"
+                       Foreground="Gray"/>
+            <Grid Grid.Row="3"
+                  ColumnDefinitions="* *">
+                <Button Grid.Column="0"
+                        Classes="LightDarkButton"
+                        CornerRadius="0"
+                        Width="80" Height="30"
+                        FontSize="12"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Margin="10"
+                        Content="Confirm"
+                        Command="{Binding Confirm}"/>
+                <Button Grid.Column="1"
+                        Classes="LightDarkButton"
+                        CornerRadius="0"
+                        FontSize="12"
+                        Width="80" Height="30"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Margin="10"
+                        Content="Ignore"
+                        Command="{Binding Ignore}"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,12 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>./Assets/logo.ico</ApplicationIcon>
-    <AssemblyName>Senka Sticker</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <AvaloniaResource Include="Assets\logo.ico" />
@@ -15,5 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\SenkaSticker.Common\SenkaSticker.Common.csproj" />
     <ProjectReference Include="..\SenkaSticker.Controls\SenkaSticker.Controls.csproj" />
+    <ProjectReference Include="..\SenkaSticker.Test\SenkaSticker.Test.csproj" />
   </ItemGroup>
 </Project>

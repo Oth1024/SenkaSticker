@@ -1,27 +1,33 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\logo.ico" />
-    <None Remove="Assets\Senka_Icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\logo.ico" />
+      <AvaloniaResource Include="Assets\Issue\Issue.png" />
+      <AvaloniaResource Include="Assets\Issue\Test.png" />
+      <AvaloniaResource Include="Assets\Issue\Requirement.png" />
+      <AvaloniaResource Include="Assets\Issue\Star.png" />
+      <AvaloniaResource Include="Assets\Issue\GrayStar.png" />
+      <AvaloniaResource Include="Assets\Common\Ok.png" />
+      <AvaloniaResource Include="Assets\Common\No.png" />
+      <AvaloniaResource Include="Assets\Common\Sort.png" />
+      <AvaloniaResource Include="Assets\Common\New.png" />
+      <AvaloniaResource Include="Assets\Issue\Edit.png" />
+      <AvaloniaResource Include="Assets\Message\Commit.png" />
+      <AvaloniaResource Include="Assets\Message\Clear.png" />
   </ItemGroup>
 
 <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Angle.Windows.Natives" Version="2.1.0.2023020321" />
-    <PackageReference Include="Avalonia.BuildServices" Version="0.0.29" />
+    <PackageReference Include="Caliburn.Micro.Avalonia" Version="5.0.181-beta" />
+    <PackageReference Include="Caliburn.Micro.Core" Version="5.0.181-beta" />
+    <PackageReference Include="Caliburn.Micro.Platform.Core" Version="5.0.181-beta" />
+    <PackageReference Include="Avalonia.BuildServices" Version="0.0.31" />
     <PackageReference Include="Avalonia.Controls.ColorPicker" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Controls.DataGrid" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Controls.ItemsRepeater" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
@@ -43,32 +49,36 @@
     <PackageReference Include="Avalonia.Xaml.Interactions.Reactive" Version="11.0.5" />
     <PackageReference Include="Avalonia.Xaml.Interactions.Responsive" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Xaml.Interactivity" Version="$(AvaloniaVersion)" />
-
     <PackageReference Include="ColorTextBlock.Avalonia" Version="11.0.2" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-    <PackageReference Include="CsvHelper" Version="31.0.0" />
     <PackageReference Include="DialogHost.Avalonia" Version="0.7.7" />
-    <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.2" />
     <PackageReference Include="MessageBox.Avalonia" Version="3.1.6" />
-    <PackageReference Include="MicroCom.Runtime" Version="0.11.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Scripting.Common" Version="3.8.0" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
     <PackageReference Include="Semi.Avalonia" Version="11.0.1" />
     <PackageReference Include="Semi.Avalonia.ColorPicker" Version="11.0.1" />
     <PackageReference Include="Semi.Avalonia.DataGrid" Version="11.0.1.1" />
-    <PackageReference Include="SkiaSharp" Version="2.88.7" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0">
-        <PrivateAssets>all</PrivateAssets>
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
 </ItemGroup>
 
 <ItemGroup>
   <ProjectReference Include="..\SenkaSticker.Common\SenkaSticker.Common.csproj" />
 </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SenkaSticker.Build\SenkaSticker.Build.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
+    <ProjectReference Include="..\SenkaSticker.Database\SenkaSticker.Database.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Components\Parts\Views\ConfirmView.axaml.cs">
+      <DependentUpon>ConfirmView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Components\PartViews\EmptyCustomControl.axaml.cs">
+      <DependentUpon>EmptyCustomControl.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Components\PartViews\CollectionsTree.axaml.cs">
+      <DependentUpon>CollectionsTree.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Components\PartViews\SeperateTimePicker.axaml.cs">
+      <DependentUpon>SeperateTimePicker.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
 </Project>

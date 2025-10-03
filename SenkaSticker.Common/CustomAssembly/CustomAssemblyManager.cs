@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using SenkaSticker.Common.Base;
+using SenkaSticker.Common.Utilities;
 
 namespace SenkaSticker.Common.CustomAssembly;
 

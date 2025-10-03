@@ -1,0 +1,133 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top"
+                  Width="200" Height="200"
+              RowDefinitions="* * * * * * * * * *"
+              ColumnDefinitions="* * * * * * * * * *">
+                <Border Grid.Row="0" Grid.Column="0" Classes="DarkBackground" Margin="1"/>
+                <Border Grid.Row="0" Grid.Column="1" Classes="LightGrayBackground" Margin="1"/>
+                <Border Grid.Row="0" Grid.Column="2" Classes="NightGrayBackground" Margin="1"/>
+            </Grid>
+            <DockPanel DockPanel.Dock="Top">
+                <Button Width="120" Height="40"
+                        Classes="DefaultDarkButton"
+                        Content="Test"/>
+                <Button Width="120" Height="40"
+                        IsEnabled="False"
+                        Classes="DefaultDarkButton"
+                        Content="Test"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button Width="120" Height="40"
+                        Classes="LightDarkButton"
+                        Content="Test"/>
+                <Button Width="120" Height="40"
+                        IsEnabled="False"
+                        Classes="LightDarkButton"
+                        Content="Test"/>
+            </DockPanel>
+        </DockPanel>
+    </Design.PreviewWith>
+    <!--Border-->
+    <Style Selector="Border.CodeDarkBackground">
+        <Setter Property="Background" Value="#1f1f1f"/>
+    </Style>
+    <Style Selector="Border.DarkBackground">
+        <Setter Property="Background" Value="#333333"/>
+    </Style>
+    <Style Selector="Border.LightGrayBackground">
+        <Setter Property="Background" Value="#cfcfcf"/>
+    </Style>
+    <Style Selector="Border.NightGrayBackground">
+        <Setter Property="Background" Value="#5f5f5f"/>
+    </Style>
+    
+    <Style Selector="Border.LightGrayBorderLine">
+        <Setter Property="BorderBrush" Value="#5f5f5f"/>
+    </Style>
+    <Style Selector="Border.SenkaBorderLine">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <!--Button-->
+    <Style Selector="Button.DefaultDarkButton">
+        <Setter Property="Foreground" Value="#8f8f8f"/>
+        <Setter Property="Background" Value="#333333"/>
+    </Style>
+    <Style Selector="Button.DefaultDarkButton:pointerover">
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="Background" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="Button.DefaultDarkButton:disabled">
+        <Setter Property="Foreground" Value="#8f8f8f"/>
+        <Setter Property="Background" Value="#5f5f5f"/>
+    </Style>
+
+    <Style Selector="Button.LightDarkButton">
+        <Setter Property="Foreground" Value="#8f8f8f"/>
+        <Setter Property="Background" Value="#5f5f5f"/>
+    </Style>
+    <Style Selector="Button.LightDarkButton:pointerover">
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="Background" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="Button.LightDarkButton:disabled">
+        <Setter Property="Foreground" Value="#5f5f5f"/>
+        <Setter Property="Background" Value="#7f7f7f"/>
+    </Style>
+    <!--Senka Textbox-->
+    <Style Selector="TextBox.DefaultSenkaTextbox">
+        <Setter Property="CaretBrush" Value="Gray"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="SelectionBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:pointerover">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus-within">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus /template/ Border#PART_ContentPresenterBorder">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <!--Long Textbox-->
+    <Style Selector="TextBox.LongTextbox /template/ TextBlock#PART_Watermark">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
+    <Style Selector="TextBox.LongTextbox /template/ TextPresenter#PART_TextPresenter">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
+    <!--Senka MenuItem-->
+    <Style Selector="MenuItem.LightDarkMenuItem">
+        <Setter Property="Foreground" Value="#8f8f8f"/>
+        <Setter Property="Background" Value="#5f5f5f"/>
+    </Style>
+    <Style Selector="MenuItem.LightDarkMenuItem:pointerover">
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="Background" Value="#ea5e27"/>
+    </Style>
+    <!--Senka ComboBox-->
+    <Style Selector="ComboBox.DefaultSenkaComboBox">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Foreground" Value="Gray"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:pointerover">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus-within">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus /template/ Border#PART_ContentPresenterBorder">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+</Styles>

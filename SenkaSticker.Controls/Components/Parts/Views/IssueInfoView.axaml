@@ -1,0 +1,339 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:cal="http://www.caliburnproject.org"
+             xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.Parts.ViewModels"
+             xmlns:converters="using:SenkaSticker.Controls.Converters"
+             x:DataType="viewModels:IssueInfoViewModel"
+             xmlns:controls="using:SenkaSticker.Controls.Components.PartViews"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="SenkaSticker.Controls.Components.Parts.Views.IssueInfoView">
+    <UserControl.Resources>
+        <converters:IssueTypeIconConverter x:Key="issueTypeIconConverter"/>
+        <converters:LimitedStringConverter x:Key="limitedStringConverter"/>
+        <converters:IssueStarIconConverter x:Key="issueStarIconConverter"/>
+        <converters:ButtonForegroundIssueStateConverter x:Key="buttonForegroundConverter"/>
+        <converters:ButtonBackgroundIssueStateConverter x:Key="buttonBackgroundConverter"/>
+        <converters:ButtonItemVisibleIssueStateConverter x:Key="buttonItemVisibleConverter"/>
+        <converters:ButtonFlyoutContentIssueStateConverter x:Key="buttonFlyoutConverter"/>
+        <converters:EmptyStringConverter x:Key="emptyStringConverter"/>
+        <converters:EmptyStringFontStyleConverter x:Key="emptyStringFontStyleConverter"/>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+    </UserControl.Styles>
+    <Grid RowDefinitions="* Auto">
+        <Border Classes="DarkBackground">
+            <Grid ColumnDefinitions="Auto * Auto">
+                <Image Grid.Column="0"
+                       Margin="10"
+                       Width="25" Height="25"
+                       Source="{Binding IssueModel.Type, Converter={StaticResource issueTypeIconConverter}}"/>
+                <TextBlock Grid.Column="1"
+                           FontSize="18"
+                           Foreground="Gray"
+                           Margin="10" VerticalAlignment="Center"
+                           Text="{Binding IssueModel.IssueName, Converter={StaticResource limitedStringConverter}}"/>
+                <Button Grid.ColumnSpan="3"
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                        Opacity="0"
+                        Command="{Binding Expand}"/>
+                <Button Grid.Column="2" VerticalAlignment="Top"
+                        Classes="InvisibleButton"
+                        IsVisible="{Binding !IssueModel.IsStared}"
+                        Width="30" Height="30"
+                        Padding="5" Margin="10"
+                        Command="{Binding DoStar}">
+                    <Image Source="avares://SenkaSticker.Controls/Assets/Issue/GrayStar.png"
+                           Stretch="Uniform"/>
+                </Button>
+                <Button Grid.Column="2" VerticalAlignment="Top"
+                        IsVisible="{Binding IssueModel.IsStared}"
+                        Width="30" Height="30"
+                        Padding="5" Margin="10"
+                        Command="{Binding DoUnStar}">
+                    <Image Source="avares://SenkaSticker.Controls/Assets/Issue/Star.png"
+                           Stretch="Uniform"/>
+                </Button>
+            </Grid>
+        </Border>
+        <Border Grid.Row="1"
+                IsVisible="{Binding IsExpand}"
+                Height="350"
+                Classes="CodeDarkBackground">
+            <ScrollViewer>
+                <DockPanel DockPanel.Dock="Top" Margin="20">
+                    <DockPanel DockPanel.Dock="Top">
+                        <Button DockPanel.Dock="Right"
+                                Width="25" Height="25"
+                                Margin="5" Padding="0"
+                                Command="{Binding TryStar}">
+                            <Image Source="{Binding IssueModel.IsStared, Converter={StaticResource issueStarIconConverter}}"/>
+                        </Button>
+                        <Button DockPanel.Dock="Right"
+                                IsVisible="{Binding !IsEditing}"
+                                Width="25" Height="25"
+                                Margin="5" Padding="0"
+                                Command="{Binding Edit}">
+                            <Image Source="avares://SenkaSticker.Controls/Assets/Issue/Edit.png"/>
+                        </Button>
+                        <Button DockPanel.Dock="Right"
+                                IsVisible="{Binding IsEditing}"
+                                Width="25" Height="25"
+                                Margin="5" Padding="0"
+                                Command="{Binding Cancel}">
+                            <Image Source="avares://SenkaSticker.Controls/Assets/Common/No.png"/>
+                        </Button>
+                        <Button DockPanel.Dock="Right"
+                                IsVisible="{Binding IsEditing}"
+                                Width="25" Height="25"
+                                Margin="5" Padding="0"
+                                Command="{Binding Save}">
+                            <Image Source="avares://SenkaSticker.Controls/Assets/Common/Ok.png"/>
+                        </Button>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Foreground="Gray"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Text="{Binding IssueModel.IssueName}"
+                                   FontSize="16" FontWeight="Black"
+                                   TextWrapping="Wrap"
+                                   Margin="10"/>
+                        <TextBox DockPanel.Dock="Left"
+                                 Classes="DefaultSenkaTextbox"  
+                                 Foreground="Gray"
+                                 IsVisible="{Binding IsEditing}"
+                                 Text="{Binding IssueName}"
+                                 FontSize="16" FontWeight="Black"
+                                 TextWrapping="Wrap"
+                                 Margin="10"/>
+                    </DockPanel>
+                    <Grid DockPanel.Dock="Top" RowDefinitions="Auto Auto Auto" ColumnDefinitions="* * * *">
+                        <Grid Grid.Row="0" Grid.ColumnSpan="4"
+                              Margin="0,0,0,5"
+                              ColumnDefinitions="3* 5* 3* 5* 16*">
+                            <TextBlock Grid.Column="0"
+                                       Foreground="Gray"
+                                       VerticalAlignment="Center"
+                                       Text="Type:"
+                                       FontSize="14" FontWeight="Bold"
+                                       Margin="5"/>
+                            <DockPanel Grid.Column="1" LastChildFill="False"
+                                       VerticalAlignment="Center">
+                                <Image DockPanel.Dock="Left"
+                                       Source="{Binding IssueModel.Type, Converter={StaticResource issueTypeIconConverter}}"
+                                       Width="20" Height="20"/>
+                                <TextBlock DockPanel.Dock="Left"
+                                           Foreground="Gray"
+                                           Text="{Binding IssueModel.Type}"
+                                           FontSize="14" FontWeight="Bold"
+                                           Margin="5,0,0,0"
+                                           VerticalAlignment="Center"/>
+                            </DockPanel>
+                            <TextBlock Grid.Column="2"
+                                       Foreground="Gray"
+                                       Text="State:"
+                                       FontSize="14" FontWeight="Bold"
+                                       VerticalAlignment="Center"
+                                       Margin="5"/>
+                            <Button Grid.Column="3" Grid.ColumnSpan="3"
+                                    Height="30"
+                                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                                    Foreground="{Binding IssueModel.State, Converter={StaticResource buttonForegroundConverter}}"
+                                    Background="{Binding IssueModel.State, Converter={StaticResource buttonBackgroundConverter}}"
+                                    FontSize="14" FontWeight="Bold"
+                                    Margin="5" Padding="0">
+                                <DockPanel LastChildFill="False" Margin="5">
+                                    <Border DockPanel.Dock="Right"
+                                            BorderThickness="1,0,0,0" BorderBrush="{Binding IssueModel.State, Converter={StaticResource buttonForegroundConverter}}"
+                                            IsVisible="{Binding IssueModel.State, Converter={StaticResource buttonItemVisibleConverter}}">
+                                        <TextBlock Margin="2,0,2,0"
+                                                   Text=">"/>
+                                    </Border>
+                                    <TextBlock DockPanel.Dock="Right"
+                                               Margin="2,0,4,0"
+                                               Width=""
+                                               Text="{Binding IssueModel.State}"/>
+                                </DockPanel>
+                                <Button.Styles>
+                                    <Style Selector="FlyoutPresenter">
+                                        <Setter Property="MinWidth" Value="10"/>
+                                        <Setter Property="MinHeight" Value="10"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="CornerRadius" Value="0"/>
+                                        <Setter Property="Background" Value="WhiteSmoke"/>
+                                    </Style>
+                                </Button.Styles>
+                                <Button.Flyout>
+                                    <Flyout Placement="BottomEdgeAlignedLeft"
+                                            ShowMode="Transient"
+                                            HorizontalOffset="-4"
+                                            Opened="OnProcessStateFlyoutOpen">
+                                        <Button HorizontalAlignment="Left"
+                                                CornerRadius="0"
+                                                Foreground="#444444"
+                                                Command="{Binding EnterNextStage}"
+                                                Click="OnButtonClicked"
+                                                BorderThickness="0">
+                                            <TextBlock Text="{Binding IssueModel.State, Converter={StaticResource buttonFlyoutConverter}}"
+                                                       HorizontalAlignment="Left"
+                                                       TextAlignment="Left"/>
+                                        </Button>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </Grid>
+
+                        <!--Planned Start Time-->
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Foreground="Gray"
+                                   Text="Planned Start Time:"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1"
+                                   Foreground="Gray"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Text="{Binding IssueModel.PlannedStartedTime, StringFormat='yyyy/MM/dd'}"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <controls:SeperateTimePicker Grid.Row="1" Grid.Column="1"
+                                                     Foreground="Gray"
+                                                     IsVisible="{Binding IsEditing}"
+                                                     FontSize="12"
+                                                     YearWidth="35" MonthWidth="35" DayWidth="35"
+                                                     Height="25" Margin="0,5,10,5"
+                                                     DateTime="{Binding PlannedStartedTime}"/>
+
+                        <!--Actual Start Time-->
+                        <TextBlock Grid.Row="1" Grid.Column="2"
+                                   Foreground="Gray"
+                                   Text="Actual Start Time:"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <TextBlock Grid.Row="1" Grid.Column="3"
+                                   Foreground="Gray"
+                                   Text="{Binding IssueModel.ActualStartTime, StringFormat='yyyy/MM/dd'}"
+                                   Margin="5"
+                                   FontSize="12"/>
+
+                        <!--Planned Finish Time-->
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                   Foreground="Gray"
+                                   Text="Planned Finish Time:"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1"
+                                   Foreground="Gray"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Text="{Binding IssueModel.PlannedFinishTime, StringFormat='yyyy/MM/dd'}"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <controls:SeperateTimePicker Grid.Row="2" Grid.Column="1"
+                                                     Foreground="Gray"
+                                                     IsVisible="{Binding IsEditing}"
+                                                     FontSize="12"
+                                                     YearWidth="35" MonthWidth="35" DayWidth="35"
+                                                     Height="25" Margin="0,5,10,5"
+                                                     DateTime="{Binding PlannedFinishTime}"/>
+
+                        <!--Actual Finish Time-->
+                        <TextBlock Grid.Row="2" Grid.Column="2"
+                                   Foreground="Gray"
+                                   Text="Actual Finish Time:"
+                                   Margin="5"
+                                   FontSize="12"/>
+                        <TextBlock Grid.Row="2" Grid.Column="3"
+                                   Foreground="Gray"
+                                   Text="{Binding IssueModel.ActualFinishTime, StringFormat='yyyy/MM/dd'}"
+                                   Margin="5"
+                                   FontSize="12"/>
+                    </Grid>
+                    <!--Description-->
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="False"
+                               Margin="0,5,0,0">
+                        <TextBlock DockPanel.Dock="Top"
+                                   Foreground="Gray"
+                                   Text="Description:"
+                                   Margin="5"
+                                   FontSize="14" FontWeight="Bold"/>
+                        <TextBlock DockPanel.Dock="Top"
+                                   Foreground="Gray"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Margin="5"
+                                   Text="{Binding IssueModel.Description, Converter={StaticResource emptyStringConverter}}"
+                                   FontStyle="{Binding IssueModel.Description, Converter={StaticResource emptyStringFontStyleConverter}}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"
+                                   MinHeight="10"/>
+                        <TextBox DockPanel.Dock="Top"
+                                 CaretBrush="Gray"
+                                 Classes="DefaultSenkaTextbox LongTextbox"
+                                 Foreground="Gray"
+                                 IsVisible="{Binding IsEditing}"
+                                 BorderBrush="Gray" BorderThickness="1"
+                                 Text="{Binding Description}"
+                                 FontSize="12"
+                                 TextWrapping="Wrap"
+                                 MinHeight="50"/>
+                    </DockPanel>
+                    <!--RootCause-->
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="False"
+                               Margin="0,5,0,0">
+                        <TextBlock DockPanel.Dock="Top"
+                                   Foreground="Gray"
+                                   Text="Root Cause:"
+                                   Margin="5"
+                                   FontSize="14" FontWeight="Bold"/>
+                        <TextBlock DockPanel.Dock="Top"
+                                   Foreground="Gray"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Margin="5"
+                                   Text="{Binding IssueModel.RootCause, Converter={StaticResource emptyStringConverter}}"
+                                   FontStyle="{Binding IssueModel.RootCause, Converter={StaticResource emptyStringFontStyleConverter}}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"
+                                   MinHeight="10"/>
+                        <TextBox DockPanel.Dock="Top"
+                                 CaretBrush="Gray"
+                                 Classes="DefaultSenkaTextbox LongTextbox"
+                                 Foreground="Gray"
+                                 IsVisible="{Binding IsEditing}"
+                                 BorderBrush="Gray" BorderThickness="1"
+                                 Text="{Binding RootCause}"
+                                 FontSize="12"
+                                 TextWrapping="Wrap"
+                                 MinHeight="50"/>
+                    </DockPanel>
+                    <!--Solution-->
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="False"
+                               Margin="0,5,0,0">
+                        <TextBlock DockPanel.Dock="Top"
+                                   Foreground="Gray"
+                                   Text="Solution:"
+                                   Margin="5"
+                                   FontSize="14" FontWeight="Bold"/>
+                        <TextBlock DockPanel.Dock="Top"
+                                   IsVisible="{Binding !IsEditing}"
+                                   Foreground="Gray"
+                                   Margin="5"
+                                   Text="{Binding IssueModel.Solution, Converter={StaticResource emptyStringConverter}}"
+                                   FontStyle="{Binding IssueModel.Solution, Converter={StaticResource emptyStringFontStyleConverter}}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"
+                                   MinHeight="10"/>
+                        <TextBox DockPanel.Dock="Top"
+                                 CaretBrush="Gray"
+                                 Classes="DefaultSenkaTextbox LongTextbox"
+                                 Foreground="Gray"
+                                 IsVisible="{Binding IsEditing}"
+                                 BorderBrush="Gray" BorderThickness="1"
+                                 Text="{Binding Solution}"
+                                 FontSize="12"
+                                 TextWrapping="Wrap"
+                                 MinHeight="50"/>
+                    </DockPanel>
+                </DockPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

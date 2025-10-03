@@ -5,6 +5,7 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{E4DBD6B4-2BA2-4480-9D68-8524AB3716EF}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
 	EndProjectSection
@@ -15,7 +16,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Controls", "Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Common", "SenkaSticker.Common\SenkaSticker.Common.csproj", "{E47F93E1-F135-4B26-9B9C-C13EFFCEF5F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenkaSticker.Test", "SenkaSticker.Test\SenkaSticker.Test.csproj", "{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Test", "SenkaSticker.Test\SenkaSticker.Test.csproj", "{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenkaSticker.Build", "SenkaSticker.Build\SenkaSticker.Build.csproj", "{FBEDB546-8998-4DC2-B687-231EE0C96C55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenkaSticker.Database", "SenkaSticker.Database\SenkaSticker.Database.csproj", "{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CI", "CI", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		CI\Build.bat = CI\Build.bat
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +67,22 @@ Global
 		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|Any CPU.Build.0 = Release|x64
 		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|x64.ActiveCfg = Release|x64
 		{F4329EFF-3160-4EBC-BC53-1D63660F3FCD}.Release|x64.Build.0 = Release|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Debug|Any CPU.Build.0 = Debug|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Debug|x64.ActiveCfg = Debug|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Debug|x64.Build.0 = Debug|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Release|Any CPU.ActiveCfg = Release|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Release|Any CPU.Build.0 = Release|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Release|x64.ActiveCfg = Release|x64
+		{FBEDB546-8998-4DC2-B687-231EE0C96C55}.Release|x64.Build.0 = Release|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Debug|Any CPU.Build.0 = Debug|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Debug|x64.ActiveCfg = Debug|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Debug|x64.Build.0 = Debug|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Release|Any CPU.ActiveCfg = Release|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Release|Any CPU.Build.0 = Release|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Release|x64.ActiveCfg = Release|x64
+		{D3B4AEE7-18B7-4AD3-9607-7D080152FF0E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

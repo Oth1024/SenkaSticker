@@ -5,16 +5,18 @@
 			 xmlns:cal="http://www.caliburnproject.org"
              xmlns:viewModels="clr-namespace:SenkaSticker.Controls.Components.ViewModels"
              x:DataType="viewModels:DefaultSenkaGridViewModel"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             MinWidth="800" MinHeight="600"
              x:Class="SenkaSticker.Controls.Components.Views.DefaultSenkaGridView">
-    <Border BorderBrush="#ea5e27" BorderThickness="1,5" Background="#1f1f1f">
-        <StackPanel>
-            <Border Background="#ea5e27" Height="32">
-                <DockPanel LastChildFill="False">
-                    
-                </DockPanel>
-            </Border>
-            
-        </StackPanel>
+    <UserControl.Styles>
+        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/GlobalColor.axaml"/>
+    </UserControl.Styles>
+    <Border Classes="DarkBackground">
+        <Grid ColumnDefinitions="* 200">
+            <ContentControl Grid.Column="0"
+                            cal:View.Model="{Binding Issues}"/>
+            <ContentControl Grid.Column="1"
+                            cal:View.Model="{Binding Messages}"/>
+        </Grid>
     </Border>
 </UserControl>
