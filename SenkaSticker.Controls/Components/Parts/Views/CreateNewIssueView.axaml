@@ -9,7 +9,9 @@
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="900"
              x:Class="SenkaSticker.Controls.Components.Parts.Views.CreateNewIssueView">
     <UserControl.Styles>
-        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+        <StyleInclude Source="/Theme/ButtonTheme.axaml"/>
+        <StyleInclude Source="/Theme/TextBoxTheme.axaml"/>
+        <StyleInclude Source="/Theme/ComboBoxTheme.axaml"/>
         <Style Selector="Grid > TextBlock">
             <Setter Property="Foreground" Value="Gray"/>
         </Style>
@@ -23,26 +25,26 @@
     <DockPanel>
         <DockPanel DockPanel.Dock="Top"
                    Margin="10">
-            <Button Classes="LightDarkButton"
+            <Button Classes="LightImageDarkButton"
                     IsVisible="{Binding !IsCreating}"
                     Command="{Binding Create}"
-                    Margin="10,0,0,0" Padding="2"
+                    Margin="10,0,0,0"
                     ToolTip.Tip="Create New Issue"
                     Width="25" Height="25">
-                <Image Source="avares://SenkaSticker.Controls/Assets/Common/New.png"/>
+                <Image Source="avares://SenkaSticker.Controls/Assets/Issue/New.png"/>
             </Button>
-            <Button Classes="LightDarkButton"
+            <Button Classes="LightImageDarkButton"
                     IsVisible="{Binding IsCreating}"
                     Command="{Binding Save}"
-                    Margin="10,0,0,0" Padding="2"
+                    Margin="10,0,0,0"
                     ToolTip.Tip="Accept"
                     Width="25" Height="25">
                 <Image Source="avares://SenkaSticker.Controls/Assets/Common/Ok.png"/>
             </Button>
-            <Button Classes="LightDarkButton"
+            <Button Classes="LightImageDarkButton"
                     IsVisible="{Binding IsCreating}"
                     Command="{Binding Cancel}"
-                    Margin="10,0,0,0" Padding="2"
+                    Margin="10,0,0,0"
                     ToolTip.Tip="Cancel"
                     Width="25" Height="25">
                 <Image Source="avares://SenkaSticker.Controls/Assets/Common/No.png"/>

@@ -9,7 +9,9 @@
              mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="600"
              x:Class="SenkaSticker.Controls.Components.Parts.Views.IssuePopView">
     <UserControl.Styles>
-        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/GlobalColor.axaml"/>
+        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/ButtonTheme.axaml"/>
+        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/TextBoxTheme.axaml"/>
+        <StyleInclude Source="avares://SenkaSticker.Controls/Theme/FlyoutTheme.axaml"/>
     </UserControl.Styles>
     <Grid RowDefinitions="Auto *">
         <DockPanel Grid.Row="0"
@@ -18,19 +20,11 @@
                        Foreground="Gray"
                        VerticalAlignment="Center"/>
             <Button DockPanel.Dock="Right"
-                    Classes="LightDarkButton"
-                    Margin="10,0,0,0" Padding="2"
+                    Classes="LightImageDarkButton"
+                    Margin="10,0,0,0"
                     Width="25" Height="25">
                 <Image Stretch="Fill"
                        Source="avares://SenkaSticker.Controls/Assets/Common/Sort.png"/>
-                <Button.Styles>
-                    <Style Selector="MenuFlyoutPresenter">
-                        <Setter Property="CornerRadius" Value="0"/>
-                        <Setter Property="Padding" Value="0"/>
-                        <Setter Property="Background" Value="#ea5e27"/>
-                        <Setter Property="Foreground" Value="#333333"/>
-                    </Style>
-                </Button.Styles>
                 <Button.Flyout>
                     <MenuFlyout Placement="BottomEdgeAlignedRight">
                         <MenuItem Header="Default" FontSize="12"
@@ -88,6 +82,7 @@
                     <controls:CollectionsTree
                         HeaderForeground="Gray"
                         Header="Issue"
+                        IsExpanded="True"
                         ItemsSource="{Binding DisplayIssues}"/>
                 </DockPanel>
             </DockPanel>

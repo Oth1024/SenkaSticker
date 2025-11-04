@@ -9,7 +9,7 @@
              xmlns:converters="using:SenkaSticker.Controls.Converters"
              x:Class="SenkaSticker.Controls.Components.Parts.Views.ConfirmView">
     <UserControl.Styles>
-        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+        <StyleInclude Source="/Theme/ButtonTheme.axaml"/>
     </UserControl.Styles>
     <UserControl.Resources>
         <converters:LimitedStringConverter x:Key="limitedStringConverter"/>

@@ -21,6 +21,7 @@
                 <Setter Property="Background" Value="{Binding ElementName=timepicker, Path=Background}"/>
                 <Setter Property="Foreground" Value="{Binding ElementName=timepicker, Path=Foreground}"/>
             </Style>
+            <StyleInclude Source="avares://SenkaSticker.Controls/Theme/FlyoutTheme.axaml"/>
         </Grid.Styles>
         <TextBox Grid.Column="0" x:Name="YearTextBox" Classes="Small DefaultSenkaTextbox"
                  TextAlignment="Right"

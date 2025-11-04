@@ -1,0 +1,34 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+
+    </Design.PreviewWith>
+
+    <!--Senka Textbox-->
+    <Style Selector="TextBox.DefaultSenkaTextbox">
+        <Setter Property="CaretBrush" Value="Gray"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="SelectionBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:pointerover">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus-within">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="TextBox.DefaultSenkaTextbox:focus /template/ Border#PART_ContentPresenterBorder">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <!--Long Textbox-->
+    <Style Selector="TextBox.LongTextbox /template/ TextBlock#PART_Watermark">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
+    <Style Selector="TextBox.LongTextbox /template/ TextPresenter#PART_TextPresenter">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,5"/>
+    </Style>
+</Styles>

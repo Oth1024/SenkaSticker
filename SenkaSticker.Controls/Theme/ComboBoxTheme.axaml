@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+
+    </Design.PreviewWith>
+
+    <!--Senka ComboBox-->
+    <Style Selector="ComboBox.DefaultSenkaComboBox">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="BorderBrush" Value="DarkGray"/>
+        <Setter Property="Foreground" Value="Gray"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:pointerover">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus-within">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+    <Style Selector="ComboBox.DefaultSenkaComboBox:focus /template/ Border#PART_ContentPresenterBorder">
+        <Setter Property="BorderBrush" Value="#ea5e27"/>
+    </Style>
+</Styles>

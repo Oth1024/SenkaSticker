@@ -14,7 +14,7 @@
       <AvaloniaResource Include="Assets\Common\Ok.png" />
       <AvaloniaResource Include="Assets\Common\No.png" />
       <AvaloniaResource Include="Assets\Common\Sort.png" />
-      <AvaloniaResource Include="Assets\Common\New.png" />
+      <AvaloniaResource Include="Assets\Issue\New.png" />
       <AvaloniaResource Include="Assets\Issue\Edit.png" />
       <AvaloniaResource Include="Assets\Message\Commit.png" />
       <AvaloniaResource Include="Assets\Message\Clear.png" />

@@ -21,7 +21,9 @@
         <converters:EmptyStringFontStyleConverter x:Key="emptyStringFontStyleConverter"/>
     </UserControl.Resources>
     <UserControl.Styles>
-        <StyleInclude Source="/Theme/GlobalColor.axaml"/>
+        <StyleInclude Source="/Theme/ButtonTheme.axaml"/>
+        <StyleInclude Source="/Theme/BorderTheme.axaml"/>
+        <StyleInclude Source="/Theme/TextBoxTheme.axaml"/>
     </UserControl.Styles>
     <Grid RowDefinitions="* Auto">
         <Border Classes="DarkBackground">
